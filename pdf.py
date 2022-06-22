@@ -1,18 +1,18 @@
-# This file is part of nabilanavab/iLovePDF [a completely free software]
+# This file is part of nabilanavab/HamePDF [a completely free software]
 
 
 # Repository:  : [i💜PDF]
 # Author:      : nabilanavab
 # Email:       : nabilanavab@gmail.com
 # Telegram:    : https://telegram.dog/complete_pdf_bot
-# GitHub:      : https://github.com/nabilanavab/ILovePDF
+# GitHub:      : https://github.com/nabilanavab/HamePDF
 # Coding       : !/usr/bin/python3, utf-8, copyright ©️ 2021 nabilanavab
 
 
 # ABOUT SOURCE-CODE:
 #     Inspired from an old Telegram Bot [@JPG2PDFBot] by @spechide
 # 
-# When I released nabilanavab/ILovePDF in 2021-JUNE, It had Only 100 lines of code.
+# When I released nabilanavab/HamePDF in 2021-JUNE, It had Only 100 lines of code.
 # at that time, bot only supports images to PDF feature, Having worked on it for
 # a few more weeks, it made me more interesting In adding new features. Now, it
 # supports many manipulation over TELEGRAM PDF files..
@@ -28,7 +28,7 @@
 #                                                          DATE:[1-JUNE-2022, Wednesday]
 
 
-iLovePDF = '''
+HamePDF = '''
   _   _                  ___  ___  ____ ™
  | | | |   _____ _____  | _ \|   \|  __| 
  | | | |__/ _ \ V / -_) |  _/| |) |  _|  
@@ -43,7 +43,7 @@ import logging
 from pyromod import listen
 from configs.dm import Config
 from configs.db import isMONGOexist
-from pyrogram import Client as ILovePDF
+from pyrogram import Client as HamePDF
 from configs.db import BANNED_USR_DB, BANNED_GRP_DB
 from configs.images import CUSTOM_THUMBNAIL_U, CUSTOM_THUMBNAIL_C
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
@@ -70,11 +70,11 @@ PROCESS = []        # to check current process
 invite_link = None
 
 
-class Bot(ILovePDF):
+class Bot(HamePDF):
     
     def __init__(self):
         super().__init__(
-            session_name = "ILovePDF",
+            session_name = "HamePDF",
             api_id = Config.API_ID,
             api_hash = Config.API_HASH,
             bot_token = Config.API_TOKEN,
@@ -109,18 +109,18 @@ class Bot(ILovePDF):
                     f" BOT USERNAME: {myID.username}\n\n"
                     f"BOT GETS STARTED..\n"
                     f"Thanks @nabilanavab for this Awesome repo\n"
-                    f"Telegram Update Channel: @iLovePDF_bot\n\n"
-                    f"{iLovePDF}"
+                    f"Telegram Update Channel: @HamePDF_bot\n\n"
+                    f"{HamePDF}"
                     )
         # Bot Restarted Message to ADMINS
         for admin in Config.ADMINS:
             try:
                 await app.send_message(
                                       chat_id = admin,
-                                      text = "Bot Restarted Sar.. 😅",
+                                      text = "✅ - Bot berhasil direstart",
                                       reply_markup = InlineKeyboardMarkup(
                                             [[
-                                                InlineKeyboardButton("◍ close ◍",
+                                                InlineKeyboardButton("TUTUP",
                                                                callback_data="close")
                                             ]]
                                       ))
@@ -136,4 +136,4 @@ if __name__ == "__main__":
 
 
 #                                                         OPEN SOURCE TELEGRAM PDF BOT 🐍
-#                                                              by: nabilanavab [iLovePDF]
+#                                                              by: nabilanavab [HamePDF]
