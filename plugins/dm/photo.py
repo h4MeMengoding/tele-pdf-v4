@@ -115,11 +115,11 @@ async def images(bot, message):
                              reply_markup = InlineKeyboardMarkup(
                                                                 [[
                                                                     InlineKeyboardButton(
-                                                                                        "GENERATE 📚",
+                                                                                        "BUAT PDF",
                                                                                         callback_data="generate"
                                                                                         ),
                                                                     InlineKeyboardButton(
-                                                                                        "RENAME ✍️",
+                                                                                        "RENAME",
                                                                                         callback_data="generateREN"
                                                                                         )
                                                                 ]]
