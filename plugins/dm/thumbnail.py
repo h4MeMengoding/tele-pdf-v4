@@ -39,7 +39,7 @@ async def _thumbnail(bot, message):
         if not isMONGOexist:
             # if No mongoDB Url
             await message.reply(
-                               "Can't Use This Feature 🤧",
+                               "Can't Use This Feature",
                                quote = True
                                )
             return
@@ -53,7 +53,7 @@ async def _thumbnail(bot, message):
                                                )
                 if userStats.status not in ["administrator", "creator"]:
                     return await message.reply(
-                                              "U Can't do it Vroh.. 🤧"
+                                              "U Can't do it Vroh.."
                                               )
         if message.reply_to_message and message.reply_to_message.photo:
             # set thumbnail
@@ -124,7 +124,7 @@ async def _getThumb(bot, callbackQuery):
         chat_type = callbackQuery.message.chat.type
         if not isMONGOexist:
             await callbackQuery.answer(
-                                      "Can't Use This Feature 🤧"
+                                      "Can't Use This Feature"
                                       )
             return
         else:
@@ -158,7 +158,7 @@ async def _getThumb(bot, callbackQuery):
                                                           callback_data = "back")]]
                                    )
                 await callbackQuery.edit_message_caption(
-                                                        caption = "🌟 CURRENT THUMBNAIL 🌟 (DEFAULT)\n\n"
+                                                        caption = "🌟 CURRENT THUMBNAIL (DEFAULT)\n\n"
                                                                   "You didn't set any custom thumbnail!\n\n"
                                                                   "/thumbnail :\n◍ To get current thumbnail\n"
                                                                   "◍ Reply to a photo to set custom thumbnail",
@@ -181,7 +181,7 @@ async def _getThumb(bot, callbackQuery):
                                                 callback_data = "back")]]
                                )
             await callbackQuery.edit_message_caption(
-                                                    caption = "🌟 CURRENT THUMBNAIL 🌟\n\n"
+                                                    caption = "🌟 CURRENT THUMBNAIL\n\n"
                                                               "/thumbnail :\n◍ To get current thumbnail\n"
                                                               "◍ Reply to a photo to set custom thumbnail",
                                                     reply_markup = reply_markup)
@@ -219,7 +219,7 @@ async def _addThumb(bot, callbackQuery):
         else:
             await callbackQuery.edit_message_media(InputMediaPhoto(getThumb.photo.file_id))
             await callbackQuery.edit_message_caption(
-                                                    caption = "🌟 CURRENT THUMBNAIL 🌟\n\n"
+                                                    caption = "🌟 CURRENT THUMBNAIL\n\n"
                                                               "/thumbnail :\n◍ To get current thumbnail\n"
                                                               "◍ Reply to a photo to set custom thumbnail",
                                                     reply_markup = InlineKeyboardMarkup(
@@ -260,12 +260,12 @@ async def _delThumb(bot, callbackQuery):
                                                )
                 if userStats.status not in ["administrator", "creator"]:
                     return await callbackQuery.answer(
-                                              "U Can't do it Vroh.. 🤧"
+                                              "U Can't do it Vroh.."
                                               )
         if (callbackQuery.message.chat.id not in CUSTOM_THUMBNAIL_U) and (
             callbackQuery.message.chat.id not in CUSTOM_THUMBNAIL_C):
             await callbackQuery.answer(
-                                      "Currently, you don't set a thumbnail yet.. 🤧"
+                                      "Currently, you don't set a thumbnail yet.."
                                       )
             return await callbackQuery.edit_message_reply_markup(
                   InlineKeyboardMarkup([[

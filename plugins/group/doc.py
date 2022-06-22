@@ -69,7 +69,7 @@ suprtedPdfFile2 = [
 #--------> LOCAL VARIABLES
 #------------------->
 
-pdfReplyMsg = """`What shall i do with this file.?`
+pdfReplyMsg = """`Informasi File`
 
 File Name : `{}`
 File Size : `{}`"""
@@ -82,7 +82,7 @@ imageAdded = """`Added {} page/'s to your pdf..`🤓
 
 /generate to generate PDF 🤞"""
 
-errorEditMsg = """Something went wrong..😐
+errorEditMsg = """Something went wrong..
 
 ERROR: `{}`
 
@@ -96,7 +96,7 @@ This Means You Need To Join The Below Mentioned Channel for Using Me!
 
 hit on "retry ♻️" after joining.. 😅"""
 
-foolRefresh = "വിളച്ചിലെടുക്കല്ലേ കേട്ടോ 😐"
+foolRefresh = "വിളച്ചിലെടുക്കല്ലേ കേട്ടോ "
 
 #--------------->
 #--------> PDF REPLY BUTTON
@@ -104,42 +104,42 @@ foolRefresh = "വിളച്ചിലെടുക്കല്ലേ കേട�
 
 pdfReply = InlineKeyboardMarkup(
         [[
-            InlineKeyboardButton("⭐ META£ATA ⭐", 
+            InlineKeyboardButton("METADATA", 
                              callback_data="pdfInfo"),
             InlineKeyboardButton("🗳️ PREVIEW 🗳️",
                              callback_data="preview")
         ],[
-            InlineKeyboardButton("🖼️ IMAGES 🖼️",
+            InlineKeyboardButton("IMAGES 🖼️",
                              callback_data="toImage"),
-            InlineKeyboardButton("✏️ TEXT ✏️",
+            InlineKeyboardButton("TEXT",
                               callback_data="toText")
         ],[
-            InlineKeyboardButton("🔐 ENCRYPT 🔐",
+            InlineKeyboardButton("ENCRYPT",
                              callback_data="encrypt"),
             InlineKeyboardButton("🔒 DECRYPT 🔓",
                              callback_data="decrypt")
         ],[
-            InlineKeyboardButton("🗜️ COMPRESS 🗜️",
+            InlineKeyboardButton("COMPRESS",
                             callback_data="compress"),
-            InlineKeyboardButton("🤸 ROTATE 🤸",
+            InlineKeyboardButton("ROTATE",
                               callback_data="rotate")
         ],[
-            InlineKeyboardButton("✂️ SPLIT ✂️",
+            InlineKeyboardButton("SPLIT",
                                callback_data="split"),
             InlineKeyboardButton("🧬 MERGE 🧬",
                                callback_data="underDev")
         ],[
-            InlineKeyboardButton("™️ STAMP ™️",
+            InlineKeyboardButton("STAMP",
                                callback_data="stamp"),
             InlineKeyboardButton("✏️ RENAME ✏️",
                               callback_data="rename")
         ],[
-            InlineKeyboardButton("📝 OCR 📝",
+            InlineKeyboardButton("OCR",
                                  callback_data="ocr"),
             InlineKeyboardButton("🥷 A4 FORMAT 🥷",
                               callback_data="format")
         ],[
-            InlineKeyboardButton("🚫 CLOSE 🚫",
+            InlineKeyboardButton("🚫 TUTUP 🚫P",
                             callback_data="closeALL")
         ]]
     )
@@ -198,7 +198,7 @@ async def documents(bot, message):
                                     ),
                                     reply_markup = InlineKeyboardMarkup(
                                          [[
-                                               InlineKeyboardButton("🌟 JOIN CHANNEL 🌟",
+                                               InlineKeyboardButton("🌟 JOIN CHANNEL",
                                                            url = invite_link.invite_link)
                                          ],[
                                                InlineKeyboardButton("Refresh ♻️",
@@ -253,7 +253,7 @@ async def documents(bot, message):
             elif isAdmin.status not in ["administrator", "creator"]:
                 if message.from_user.id != message.reply_to_message.from_user.id:
                     return await message.reply(
-                                              "Please Reply to Your Message.. 🙂"
+                                              "Please Reply to Your Message.."
                                               )
         
         if message.reply_to_message.photo:

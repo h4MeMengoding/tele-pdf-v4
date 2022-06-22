@@ -36,7 +36,7 @@ mediaDoc = {}
 media = {}
 
 cancel = InlineKeyboardMarkup(
-                             [[InlineKeyboardButton("💤 CANCEL 💤",
+                             [[InlineKeyboardButton("CANCEL",
                                      callback_data = "cancelP2I")]]
                              )
 canceled = InlineKeyboardMarkup(
@@ -57,7 +57,7 @@ async def notInPROCESS(chat_id, message, current, total, deleteID):
         return False
     else:
         await message.edit(
-                          text = f"`Canceled at {current}/{total} pages..` 🙄",
+                          text = f"`Canceled at {current}/{total} pages..`",
                           reply_markup = canceled
                           )
         shutil.rmtree(f'{deleteID}')
@@ -85,7 +85,7 @@ async def _EXTRACT(bot, callbackQuery):
         
         if chat_id in PROCESS:
             await callbackQuery.answer(
-                                      "Work in progress.. 🙇"
+                                      "Sedang diproses..."
                                       )
             return
         
@@ -114,7 +114,7 @@ async def _EXTRACT(bot, callbackQuery):
                 needPages = await bot.ask(
                                          text = "__Pdf - Img›Doc » Pages:\n"
                                                 "Now, Enter the range (start:end) :__\n\n"
-                                                "/exit __to cancel__",
+                                                "/exit __untuk membatalkan__",
                                          chat_id = chat_id,
                                          reply_to_message_id = message_id,
                                          filters = filters.text,
@@ -159,7 +159,7 @@ async def _EXTRACT(bot, callbackQuery):
                     await callbackQuery.message.reply_text(
                                                           "`Syntax Error: noEndingPageNumber Or notADigit` 🚶"
                                                           )
-        # SINGLE PAGES
+        # SINGLE HALAMAN
         else:
             newList = []
             nabilanavab = True
@@ -176,7 +176,7 @@ async def _EXTRACT(bot, callbackQuery):
                 needPages = await bot.ask(
                                          text = "__Pdf - Img›Doc » Pages:\n"
                                                 "Now, Enter the Page Numbers seperated by__ (,) :\n\n"
-                                                "/exit __to cancel__",
+                                                "/exit __untuk membatalkan__",
                                          chat_id = chat_id,
                                          reply_to_message_id = message_id,
                                          filters = filters.text,
@@ -200,7 +200,7 @@ async def _EXTRACT(bot, callbackQuery):
                     if newList != []:
                         nabilanavab = False
                         break
-                    # AFTER SORTING (IF NO DIGIT PAGES RETURN)
+                    # AFTER SORTING (IF NO DIGIT HALAMAN RETURN)
                     elif newList == []:
                         await callbackQuery.message.reply(
                                                          "`Cant find any number..`😏"
@@ -270,7 +270,7 @@ async def _EXTRACT(bot, callbackQuery):
                                              both_sides = True
                                              )
                 await downloadMessage.edit(
-                                          text = f"`Total pages: {int(pageStartAndEnd[1])+1 - int(pageStartAndEnd[0])}..⏳`",
+                                          text = f"`Total Halaman: {int(pageStartAndEnd[1])+1 - int(pageStartAndEnd[0])}..⏳`",
                                           reply_markup = cancel
                                           )
                 totalPgList = range(int(pageStartAndEnd[0]), int(pageStartAndEnd[1])+1)
@@ -423,7 +423,7 @@ async def _EXTRACT(bot, callbackQuery):
                     PROCESS.remove(chat_id); shutil.rmtree(f'{message_id}'); doc.close()
                     return
                 await downloadMessage.edit(
-                                          text = f"`Total pages: {len(totalPgList)}..⏳`",
+                                          text = f"`Total Halaman: {len(totalPgList)}..⏳`",
                                           reply_markup = cancel
                                           )
                 cnvrtpg = 0
@@ -572,7 +572,7 @@ async def _KEXTRACT(bot, callbackQuery):
         
         if chat_id in PROCESS:
             await callbackQuery.answer(
-                                      "Work in progress.. 🙇"
+                                      "Sedang diproses..."
                                       )
             return
         await callbackQuery.answer(
@@ -596,7 +596,7 @@ async def _KEXTRACT(bot, callbackQuery):
                 needPages = await bot.ask(
                                          text = "__Pdf - Img›Doc » Pages:\n"
                                                 "Now, Enter the range (start:end) :__\n\n"
-                                                "/exit __to cancel__",
+                                                "/exit __untuk membatalkan__",
                                          chat_id = chat_id,
                                          reply_to_message_id = message_id,
                                          filters = filters.text,
@@ -651,7 +651,7 @@ async def _KEXTRACT(bot, callbackQuery):
                 needPages = await bot.ask(
                                          text = "__Pdf - Img›Doc » Pages:\n"
                                                 "Now, Enter the Page Numbers seperated by__ (,) :\n\n"
-                                                "/exit __to cancel__",
+                                                "/exit __untuk membatalkan__",
                                          chat_id = chat_id,
                                          reply_to_message_id = message_id,
                                          filters = filters.text,
@@ -737,7 +737,7 @@ async def _KEXTRACT(bot, callbackQuery):
                                              both_sides = True
                                              )
                 await downloadMessage.edit(
-                                          text = f"`Total pages: {int(pageStartAndEnd[1])+1 - int(pageStartAndEnd[0])}..⏳`",
+                                          text = f"`Total Halaman: {int(pageStartAndEnd[1])+1 - int(pageStartAndEnd[0])}..⏳`",
                                           reply_markup = cancel
                                           )
                 totalPgList = range(int(pageStartAndEnd[0]), int(pageStartAndEnd[1])+1)
@@ -757,7 +757,7 @@ async def _KEXTRACT(bot, callbackQuery):
                         if chat_id not in PROCESS:
                             try:
                                 await downloadMessage.edit(
-                                                          text = f"`Canceled at {cnvrtpg}/{int(int(pageStartAndEnd[1])+1 - int(pageStartAndEnd[0]))} pages.. 🙄`",
+                                                          text = f"`Canceled at {cnvrtpg}/{int(int(pageStartAndEnd[1])+1 - int(pageStartAndEnd[0]))} pages..`",
                                                           reply_markup = canceled
                                                           )
                                 shutil.rmtree(f'{message_id}')
@@ -877,7 +877,7 @@ async def _KEXTRACT(bot, callbackQuery):
                     doc.close()
                     return
                 await downloadMessage.edit(
-                                          text=f"`Total pages: {len(totalPgList)}..⏳`", 
+                                          text=f"`Total Halaman: {len(totalPgList)}..⏳`", 
                                           reply_markup = cancel
                                           )
                 cnvrtpg = 0
@@ -899,7 +899,7 @@ async def _KEXTRACT(bot, callbackQuery):
                         if chat_id not in PROCESS:
                             try:
                                 await downloadMessage.edit(
-                                                          text = f"`Canceled at {cnvrtpg}/{len(totalPgList)} pages.. 🙄`",
+                                                          text = f"`Canceled at {cnvrtpg}/{len(totalPgList)} pages..`",
                                                           reply_markup = canceled
                                                           )
                                 shutil.rmtree(f'{message_id}')

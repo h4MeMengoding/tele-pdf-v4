@@ -29,14 +29,14 @@ pdfInfoMsg = """`What shall do with this file.?`
 File Name: `{}`
 File Size: `{}`
 
-`Number of Pages: {}`✌️"""
+`Nomer halaman: {}`"""
 
 encryptedMsg = """`FILE IS ENCRYPTED` 🔐
 
 File Name: `{}`
 File Size: `{}`
 
-`Number of Pages: {}`✌️"""
+`Nomer halaman: {}`"""
 
 #--------------->
 #--------> PDF META DATA
@@ -109,42 +109,42 @@ async def _pdfInfo(bot, callbackQuery):
                 editedPdfReplyCb = InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton("⭐ META£ATA ⭐",
+                            InlineKeyboardButton("METADATA",
                                  callback_data=f"KpdfInfo|{number_of_pages}"),
                             InlineKeyboardButton("🗳️ PREVIEW 🗳️",
                                                    callback_data=f"Kpreview"),
                         ],[
-                            InlineKeyboardButton("🖼️ toIMAGES 🖼️",
+                            InlineKeyboardButton("toIMAGES 🖼️",
                                  callback_data=f"KtoImage|{number_of_pages}"),
                             InlineKeyboardButton("✏️ toTEXT ✏️",
                                   callback_data=f"KtoText|{number_of_pages}")
                         ],[
-                            InlineKeyboardButton("🔐 ENCRYPT 🔐",
+                            InlineKeyboardButton("ENCRYPT",
                                  callback_data=f"Kencrypt|{number_of_pages}"),
                             InlineKeyboardButton("🔒 DECRYPT 🔓",
                                                callback_data=f"notEncrypted")
                         ],[
-                            InlineKeyboardButton("🗜️ COMPRESS 🗜️",
+                            InlineKeyboardButton("COMPRESS",
                                                   callback_data=f"Kcompress"),
-                            InlineKeyboardButton("🤸 ROTATE 🤸",
+                            InlineKeyboardButton("ROTATE",
                                   callback_data=f"Krotate|{number_of_pages}")
                         ],[
-                            InlineKeyboardButton("✂️ SPLIT ✂️",
+                            InlineKeyboardButton("SPLIT",
                                    callback_data=f"Ksplit|{number_of_pages}"),
                             InlineKeyboardButton("🧬 MERGE 🧬",
                                                        callback_data="merge")
                         ],[
-                            InlineKeyboardButton("™️ STAMP ™️",
+                            InlineKeyboardButton("STAMP",
                                    callback_data=f"Kstamp|{number_of_pages}"),
                             InlineKeyboardButton("✏️ RENAME ✏️",
                                                       callback_data="rename")
                         ],[
-                            InlineKeyboardButton("📝 OCR 📝",
+                            InlineKeyboardButton("OCR",
                                      callback_data=f"Kocr|{number_of_pages}"),
                             InlineKeyboardButton("🥷 A4 FORMAT 🥷",
                                   callback_data=f"Kformat|{number_of_pages}")
                         ],[
-                            InlineKeyboardButton("🚫 CLOSE 🚫",
+                            InlineKeyboardButton("🚫 TUTUP 🚫P",
                                                     callback_data="closeALL")
                         ]
                     ]
@@ -166,10 +166,10 @@ async def _pdfInfo(bot, callbackQuery):
                                                                         ) + pdfMetaData,
                                                      reply_markup=InlineKeyboardMarkup(
                                                            [[
-                                                                 InlineKeyboardButton("🔓 DECRYPT 🔓",
+                                                                 InlineKeyboardButton("DECRYPT",
                                                                               callback_data="decrypt")
                                                            ],[
-                                                                 InlineKeyboardButton("🚫 CLOSE 🚫",
+                                                                 InlineKeyboardButton("🚫 TUTUP 🚫P",
                                                                            callback_data="closeALL")
                                                            ]]
                                                      ))
@@ -192,7 +192,7 @@ async def _pdfInfo(bot, callbackQuery):
                                                              InlineKeyboardButton("❌ Error in file ❌",
                                                                                  callback_data=f"error")
                                                        ],[
-                                                             InlineKeyboardButton("🚫 CLOSE 🚫",
+                                                             InlineKeyboardButton("🚫 TUTUP 🚫P",
                                                                        callback_data="closeALL")
                                                        ]]
                                                   ))

@@ -14,7 +14,7 @@ pdfInfoMsg = """`What shall i wanted to do with this file.?`
 File Name : `{}`
 File Size : `{}`
 
-`Number of Pages: {}`✌️"""
+`Nomer halaman: {}`"""
 
 #--------------->
 #--------> EDIT CHECKPDF MESSAGE (IF PDF & NOT ENCRYPTED)
@@ -32,42 +32,42 @@ async def toKnown(callbackQuery, number_of_pages):
             ),
             reply_markup = InlineKeyboardMarkup(
                 [[
-                    InlineKeyboardButton("⭐ META£ATA ⭐",
+                    InlineKeyboardButton("METADATA",
                      callback_data=f"KpdfInfo|{number_of_pages}"),
                     InlineKeyboardButton("🗳️ PREVIEW 🗳️",
                                         callback_data="Kpreview")
                 ],[
-                    InlineKeyboardButton("🖼️ IMAGES 🖼️",
+                    InlineKeyboardButton("IMAGES 🖼️",
                      callback_data=f"KtoImage|{number_of_pages}"),
-                    InlineKeyboardButton("✏️ TEXT ✏️",
+                    InlineKeyboardButton("TEXT",
                       callback_data=f"KtoText|{number_of_pages}")
                 ],[
-                    InlineKeyboardButton("🔐 ENCRYPT 🔐",
+                    InlineKeyboardButton("ENCRYPT",
                      callback_data=f"Kencrypt|{number_of_pages}"),
-                    InlineKeyboardButton("🔓 DECRYPT 🔓",
+                    InlineKeyboardButton("DECRYPT",
                                    callback_data=f"notEncrypted")
                 ],[
-                    InlineKeyboardButton("🗜️ COMPRESS 🗜️",
+                    InlineKeyboardButton("COMPRESS",
                     callback_data=f"Kcompress|{number_of_pages}"),
-                    InlineKeyboardButton("🤸 ROTATE 🤸",
+                    InlineKeyboardButton("ROTATE",
                       callback_data=f"Krotate|{number_of_pages}")
                 ],[
-                    InlineKeyboardButton("✂️ SPLIT ✂️",
+                    InlineKeyboardButton("SPLIT",
                        callback_data=f"Ksplit|{number_of_pages}"),
                     InlineKeyboardButton("🧬 MERGE 🧬",
                                            callback_data="merge")
                 ],[
-                    InlineKeyboardButton("™️ STAMP ™️",
+                    InlineKeyboardButton("STAMP",
                        callback_data=f"Kstamp|{number_of_pages}"),
                     InlineKeyboardButton("✏️ RENAME ✏️",
                       callback_data=f"Krename|{number_of_pages}")
                 ],[
-                    InlineKeyboardButton("📝 OCR 📝",
+                    InlineKeyboardButton("OCR",
                          callback_data=f"Kocr|{number_of_pages}"),
                     InlineKeyboardButton("🥷 A4 FORMAT 🥷",
                       callback_data=f"Kformat|{number_of_pages}")
                 ],[
-                    InlineKeyboardButton("🚫 CLOSE 🚫",
+                    InlineKeyboardButton("🚫 TUTUP 🚫P",
                                         callback_data="closeALL")
                 ]]
             )

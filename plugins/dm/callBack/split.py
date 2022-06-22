@@ -62,7 +62,7 @@ async def _Ksplit(bot, callbackQuery):
         _, number_of_pages = callbackQuery.data.split("|")
         await callbackQuery.edit_message_text(
                                              f"Split pdf » Pages:"
-                                             f"\n\nTotal Page Number(s): {number_of_pages}__ 🌟",
+                                             f"\n\nTotal Page Number(s): {number_of_pages}__",
                                              reply_markup = InlineKeyboardMarkup(
                                                  [[
                                                      InlineKeyboardButton("With In Range 🦞",
@@ -116,7 +116,7 @@ async def _splitProcess(bot, callbackQuery):
             needPages = await bot.ask(
                                      text = "__Pdf Split » By Range\n"
                                             "Now, Enter the range (start:end) :__\n\n"
-                                            "/exit __to cancel__",
+                                            "/exit __untuk membatalkan__",
                                      chat_id = chat_id,
                                      reply_to_message_id = message_id,
                                      filters = filters.text,

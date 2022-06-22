@@ -82,7 +82,7 @@ async def _merge(bot, callbackQuery):
                 break
             askPDF = await bot.ask(
                                 text = "__MERGE pdfs » Total pdfs in queue: {}__\n\n"
-                                       "/exit __to cancel__\n"
+                                       "/exit __untuk membatalkan__\n"
                                        "/merge __to merge__".format(
                                                                    len(MERGE[chat_id])
                                                                    ),
@@ -112,7 +112,7 @@ async def _merge(bot, callbackQuery):
                     # CHECKS MAXIMUM FILE SIZE (IF ADDED) ELSE 1.8 GB LIMIT
                     if (MAX_FILE_SIZE and MAX_FILE_SIZE_IN_kiB <= int(size)) or int(size) >= 1800000000:
                         await callbackQuery.message.reply(
-                            f"`Due to Overload Bot Only Support %sMb pdfs..`😐"%(MAX_FILE_SIZE if MAX_FILE_SIZE else "1.8Gb")
+                            f"`Due to Overload Bot Only Support %sMb pdfs..`"%(MAX_FILE_SIZE if MAX_FILE_SIZE else "1.8Gb")
                         )
                         nabilanavab = False
                         break
@@ -204,7 +204,7 @@ async def _merge(bot, callbackQuery):
                                            quote = True,
                                            document = outPut,
                                            thumb = thumbnail,
-                                           caption = "`merged pdf 🙂`",
+                                           caption = "`merged pdf`",
                                            progress = uploadProgress,
                                            progress_args = (
                                                            downloadMessage,

@@ -63,7 +63,7 @@ Some of the main features are:
 ◍ This Bot is Completely Free to Use. So, please dont spam here. Spamming is strictly prohibited and leads to permanent ban.🚶
 """
 
-foolRefresh = "വിളച്ചിലെടുക്കല്ലേ കേട്ടോ 😐"
+foolRefresh = "വിളച്ചിലെടുക്കല്ലേ കേട്ടോ "
 
 LOG_TEXT = "#newUser @nabilanavab/ILovePDF\nID: {}\nView Profile: {}"
 LOG_TEXT_C = "#newChat @nabilanavab/ILovePDF\nID: {}\nGroup Title: {}\nTotal Users: {}\nUserNsme: {}"
@@ -76,7 +76,7 @@ button = InlineKeyboardMarkup(
             InlineKeyboardButton("⚠️ HELP AND RULES ⚠️",
                                      callback_data="help")
         ],[
-            InlineKeyboardButton("🌟 SOURCE CODE 🌟",
+            InlineKeyboardButton("🌟 SOURCE CODE",
             url="https://github.com/nabilanavab/ilovepdf")
         ],[
             InlineKeyboardButton("🤖 CHANNEL 🤖",
@@ -87,7 +87,7 @@ button = InlineKeyboardMarkup(
             InlineKeyboardButton("➕ ADD TO GROUP ➕",
                                   callback_data="underDev")
         ],[
-            InlineKeyboardButton("🚶 CLOSE 🚶",
+            InlineKeyboardButton("🚶 🚫 TUTUP 🚫P 🚶",
                                     callback_data="close")
         ]]
     )
@@ -149,7 +149,7 @@ async def start(bot, message):
                                                                           url = "Telegram.dog/nabilanavab"),
                                                                        InlineKeyboardButton("🛡️ UPDATE CHANNEL🛡️",
                                                                           url = "Telegram.dog/iLovePDF_bot")],
-                                                                      [InlineKeyboardButton("🌟 SOURCE CODE 🌟",
+                                                                      [InlineKeyboardButton("🌟 SOURCE CODE",
                                                                           url = "https://github.com/nabilanavab/iLovePDF")]]
                                   ))
                 except Exception: pass
@@ -203,7 +203,7 @@ async def start(bot, message):
                                                                      ),
                                          reply_markup = InlineKeyboardMarkup(
                                               [[
-                                                      InlineKeyboardButton("🌟 JOIN CHANNEL 🌟",
+                                                      InlineKeyboardButton("🌟 JOIN CHANNEL",
                                                                     url = invite_link.invite_link)
                                               ],[
                                                       InlineKeyboardButton("♻️ REFRESH ♻️",
@@ -227,11 +227,11 @@ async def start(bot, message):
         else:
             await message.reply(
                                "THIS IS A WELCOME MESSAGE 😂\n\n"
-                               "/help FOR HELP MESSAGE 🤧",
+                               "/help FOR HELP MESSAGE",
                                quote = True,
                                reply_markup = InlineKeyboardMarkup(
                                    [[
-                                       InlineKeyboardButton("🌟 SOURCE CODE 🌟",
+                                       InlineKeyboardButton("🌟 SOURCE CODE",
                                               url="https://github.com/nabilanavab/ILovePDF"),
                                        InlineKeyboardButton("🔍 ABOUT BOT 🔎",
                                                      url="https://telegram.dog/nabilanavab")
@@ -358,7 +358,7 @@ async def _close(bot, callbackQuery):
         await callbackQuery.message.delete()
     except Exception as e:
         logger.exception(
-                        "CLOSE:CAUSES %(e)s ERROR",
+                        "🚫 TUTUP 🚫P:CAUSES %(e)s ERROR",
                         exc_info=True
                         )
 

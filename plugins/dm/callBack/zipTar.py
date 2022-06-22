@@ -35,7 +35,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 #--------> LOCAL VARIABLES
 #------------------->
 
-cancel = InlineKeyboardMarkup([[InlineKeyboardButton("💤 CANCEL 💤", callback_data="cancelP2I")]])
+cancel = InlineKeyboardMarkup([[InlineKeyboardButton("CANCEL", callback_data="cancelP2I")]])
 canceled = InlineKeyboardMarkup([[InlineKeyboardButton("🍄 CANCELED 🍄", callback_data="canceled")]])
 
 #--------------->
@@ -75,14 +75,14 @@ async def _ZIPandTAR(bot, callbackQuery):
         # CHECK USER PROCESS
         if chat_id in PROCESS:
             await callbackQuery.answer(
-                                      "Work in progress.. 🙇"
+                                      "Sedang diproses..."
                                       )
             return
         
         # ↓ ADD TO PROCESS       ↓ CALLBACK DATA
         PROCESS.append(chat_id); data = callbackQuery.data
         await callbackQuery.answer(
-                                  "⚙️ Processing..."
+                                  "Memproses..."
                                   )
         
         if data in ["zipA", "tarA"]:
@@ -102,7 +102,7 @@ async def _ZIPandTAR(bot, callbackQuery):
                 needPages = await bot.ask(
                                          text = "__Pdf - Zip » Pages:\n"
                                                 "Now, Enter the range (start:end) :__\n\n"
-                                                "/exit __to cancel__",
+                                                "/exit __untuk membatalkan__",
                                          chat_id = chat_id,
                                          reply_to_message_id = message_id,
                                          filters = filters.text,
@@ -147,7 +147,7 @@ async def _ZIPandTAR(bot, callbackQuery):
                     await callbackQuery.message.reply(
                                                      "`Syntax Error: noEndingPageNumber Or notADigit` 🚶"
                                                      )
-        # SINGLE PAGES
+        # SINGLE HALAMAN
         else:
             newList = []; nabilanavab = True; i = 0
             # 5 REQUEST LIMIT
@@ -162,7 +162,7 @@ async def _ZIPandTAR(bot, callbackQuery):
                 needPages = await bot.ask(
                                          text = "__Pdf - Zip » Pages:\n"
                                                 "Now, Enter the Page Numbers seperated by__ (,) :\n\n"
-                                                "/exit __to cancel__",
+                                                "/exit __untuk membatalkan__",
                                          chat_id = chat_id,
                                          reply_to_message_id = message_id,
                                          filters = filters.text,
@@ -186,7 +186,7 @@ async def _ZIPandTAR(bot, callbackQuery):
                     if newList != []:
                         nabilanavab=False
                         break
-                    # AFTER SORTING (IF NO DIGIT PAGES RETURN)
+                    # AFTER SORTING (IF NO DIGIT HALAMAN RETURN)
                     elif newList == []:
                         await callbackQuery.message.reply(
                                                          "`Cant find any number..`😏"
@@ -263,7 +263,7 @@ async def _ZIPandTAR(bot, callbackQuery):
             mat = fitz.Matrix(zoom, zoom)
             if data in ["zipA", "zipR", "tarA", "tarR"]:
                 await downloadMessage.edit(
-                                          text = f"`Total pages: {int(pageStartAndEnd[1])+1 - int(pageStartAndEnd[0])}..⏳`",
+                                          text = f"`Total Halaman: {int(pageStartAndEnd[1])+1 - int(pageStartAndEnd[0])}..⏳`",
                                           reply_markup = cancel
                                           )
                 totalPgList = range(int(pageStartAndEnd[0]), int(pageStartAndEnd[1])+1)
@@ -279,7 +279,7 @@ async def _ZIPandTAR(bot, callbackQuery):
                     PROCESS.remove(chat_id); shutil.rmtree(f'{message_id}'); doc.close()
                     return
                 await downloadMessage.edit(
-                                          text = f"`Total pages: {len(totalPgList)}..⏳`", 
+                                          text = f"`Total Halaman: {len(totalPgList)}..⏳`", 
                                           reply_markup = cancel
                                           )
             cnvrtpg = 0
@@ -360,7 +360,7 @@ async def _ZIPandTAR(bot, callbackQuery):
                                                                      f"{output_file}.zip" if data.startswith("zip") else f"{output_file}.tar", "rb"
                                                                      ),
                                                       thumb = thumbnail,
-                                                      caption = "__Zip File__ 🤐" if data.startswith("zip") else "__Tar File__ 🙂",
+                                                      caption = "__Zip File__ 🤐" if data.startswith("zip") else "__Tar File__",
                                                       progress = uploadProgress,
                                                       progress_args = (
                                                                       downloadMessage,
@@ -398,7 +398,7 @@ async def _KZIPandTAR(bot, callbackQuery):
         
         if chat_id in PROCESS:
             await callbackQuery.answer(
-                                      "Work in progress.. 🙇"
+                                      "Sedang diproses..."
                                       )
             return
         data = callbackQuery.data[:5]
@@ -419,7 +419,7 @@ async def _KZIPandTAR(bot, callbackQuery):
                 needPages = await bot.ask(
                                          text = "__Pdf - Zip » Pages:\n"
                                                 "Now, Enter the range (start:end) :__\n\n"
-                                                "/exit __to cancel__",
+                                                "/exit __untuk membatalkan__",
                                          chat_id = chat_id,
                                          reply_to_message_id = message_id,
                                          filters = filters.text,
@@ -472,7 +472,7 @@ async def _KZIPandTAR(bot, callbackQuery):
                 needPages=await bot.ask(
                                        text = "__Pdf - Img›Doc » Pages:\n"
                                               "Now, Enter the Page Numbers seperated by__ (,) :\n\n"
-                                              "/exit __to cancel__",
+                                              "/exit __untuk membatalkan__",
                                        chat_id = chat_id,
                                        reply_to_message_id = message_id,
                                        filters = filters.text,
@@ -565,7 +565,7 @@ async def _KZIPandTAR(bot, callbackQuery):
                              )
             if data in ["KzipA", "KzipR", "KtarA", "KtarR"]:
                 await downloadMessage.edit(
-                                          text = f"`Total pages: {int(pageStartAndEnd[1])+1 - int(pageStartAndEnd[0])}..⏳`",
+                                          text = f"`Total Halaman: {int(pageStartAndEnd[1])+1 - int(pageStartAndEnd[0])}..⏳`",
                                           reply_markup = cancel
                                           )
                 totalPgList = range(int(pageStartAndEnd[0]), int(pageStartAndEnd[1])+1)
@@ -583,7 +583,7 @@ async def _KZIPandTAR(bot, callbackQuery):
                     doc.close()
                     return
                 await downloadMessage.edit(
-                                          text = f"`Total pages: {len(totalPgList)}..⏳`",
+                                          text = f"`Total Halaman: {len(totalPgList)}..⏳`",
                                           reply_markup = cancel
                                           )
             cnvrtpg = 0; os.mkdir(f'{message_id}/pgs')

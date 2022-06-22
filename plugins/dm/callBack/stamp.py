@@ -33,7 +33,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 #------------------->
 
 cancel = InlineKeyboardMarkup(
-                             [[InlineKeyboardButton("💤 CANCEL 💤",
+                             [[InlineKeyboardButton("CANCEL",
                                      callback_data = "cancelP2I")]]
                              )
 
@@ -88,10 +88,10 @@ async def _stamp(bot, callbackQuery):
         await callbackQuery.answer()
         await callbackQuery.edit_message_text(
                                              "__Add Stamp » Select Stamp:\n"
-                                             "Total pages: unknown__ 😐",
+                                             "Total Halaman: unknown__ ",
                                              reply_markup = InlineKeyboardMarkup(
                                                  [[
-                                                     InlineKeyboardButton("Not For Public Release 🤧",
+                                                     InlineKeyboardButton("Not For Public Release",
                                                                                   callback_data="stmp|10")
                                                  ],[
                                                      InlineKeyboardButton("For Public Release 🥱",
@@ -122,7 +122,7 @@ async def _stamp(bot, callbackQuery):
                                                      InlineKeyboardButton("Top Secret 😷",
                                                                                   callback_data="stmp|12"),
                                                  ],[
-                                                     InlineKeyboardButton("Draft 👀",
+                                                     InlineKeyboardButton("Draft",
                                                                                   callback_data="stmp|13"),
                                                      InlineKeyboardButton("AsIs 🤏",
                                                                                    callback_data="stmp|1")
@@ -143,10 +143,10 @@ async def _Kstamp(bot, callbackQuery):
         _, number_of_pages = callbackQuery.data.split("|")
         await callbackQuery.edit_message_text(
                                              f"__Add Stamp » Select Stamp:\n"
-                                             f"Total pages: {number_of_pages}__ 🌟",
+                                             f"Total Halaman: {number_of_pages}__",
                                              reply_markup = InlineKeyboardMarkup(
                                                  [[
-                                                     InlineKeyboardButton("Not For Public Release 🤧",
+                                                     InlineKeyboardButton("Not For Public Release",
                                                                   callback_data=f"Kstmp|{number_of_pages}|10")
                                                  ],[
                                                      InlineKeyboardButton("For Public Release 🥱",
@@ -177,7 +177,7 @@ async def _Kstamp(bot, callbackQuery):
                                                      InlineKeyboardButton("Top Secret 😷",
                                                                   callback_data=f"Kstmp|{number_of_pages}|12"),
                                                  ],[
-                                                     InlineKeyboardButton("Draft 👀",
+                                                     InlineKeyboardButton("Draft",
                                                                   callback_data=f"Kstmp|{number_of_pages}|13"),
                                                      InlineKeyboardButton("AsIs 🤏",
                                                                    callback_data=f"Kstmp|{number_of_pages}|1")
@@ -197,7 +197,7 @@ async def _stmp(bot, callbackQuery):
         await callbackQuery.answer()
         _, annot = callbackQuery.data.split("|")
         await callbackQuery.edit_message_text(
-            "__Add Stamp » Select Color:\nTotal pages: unknown__ 😐",
+            "__Add Stamp » Select Color:\nTotal Halaman: unknown__ ",
             reply_markup = InlineKeyboardMarkup(
                 [[
                     InlineKeyboardButton("Red ❤️",
@@ -235,7 +235,7 @@ async def _Kstmp(bot, callbackQuery):
         await callbackQuery.answer()
         _, number_of_pages, annot = callbackQuery.data.split("|")
         await callbackQuery.edit_message_text(
-            f"__Add Stamp » Select Color:\nTotal pages: {number_of_pages}__ 🌟",
+            f"__Add Stamp » Select Color:\nTotal Halaman: {number_of_pages}__",
             reply_markup=InlineKeyboardMarkup(
                 [[
                     InlineKeyboardButton("Red ❤️",
@@ -278,7 +278,7 @@ async def _color(bot, callbackQuery):
         # CHECK IF USER IN PROCESS
         if chat_id in PROCESS:
             await callbackQuery.answer(
-                                      "Work in progress.. 🙇"
+                                      "Sedang diproses..."
                                       )
             return
         _, annot, colr = callbackQuery.data.split("|")

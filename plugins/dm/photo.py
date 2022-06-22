@@ -87,7 +87,7 @@ async def images(bot, message):
                                          ),
                                          reply_markup = InlineKeyboardMarkup(
                                              [[
-                                                 InlineKeyboardButton("🌟 JOIN CHANNEL 🌟",
+                                                 InlineKeyboardButton("🌟 JOIN CHANNEL",
                                                              url = invite_link.invite_link)
                                              ],[
                                                  InlineKeyboardButton("Refresh ♻️",

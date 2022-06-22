@@ -105,7 +105,7 @@ async def _url(bot, message):
             await sleep(1)
             isProtect = "🔒 Protected 🔒" if (
                                  (file.sender_chat and file.sender_chat.has_protected_content) or (
-                                 file.chat and file.chat.has_protected_content)) else "👀 Public 👀"
+                                 file.chat and file.chat.has_protected_content)) else "👀 Public"
             if file.chat.type == "channel":
                 return await data.edit(
                                       f"[Open Chat]({url})\n\n"
@@ -161,7 +161,7 @@ async def _getFile(bot, callbackQuery):
         
         if callbackQuery.from_user.id in PROCESS:
             return await callbackQuery.answer(
-                                             "Work in progress.. 🙇"
+                                             "Sedang diproses..."
                                              )
         if callbackQuery.message.chat.type != "private":
             if await header(bot, callbackQuery):

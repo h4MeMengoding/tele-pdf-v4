@@ -217,7 +217,7 @@ async def _broadcast(bot, message):
                         text = "__⚙️ Broadcasting your messages...__",
                         reply_markup = InlineKeyboardMarkup(
                               [[InlineKeyboardButton(
-                                    "↩️ asForward ↩️" if info=="f" else "👀 asCopy 👀", callback_data="air"
+                                    "↩️ asForward ↩️" if info=="f" else "👀 asCopy", callback_data="air"
                               )]]
                         ))
         start_time = time.time()
@@ -246,7 +246,7 @@ async def _broadcast(bot, message):
                                        f"__Deleted:__     {deleted}\n",
                                 reply_markup = InlineKeyboardMarkup(
                                        [[InlineKeyboardButton(
-                                            "↩️ asForward ↩️" if info=="f" else "👀 asCopy 👀", callback_data="air"
+                                            "↩️ asForward ↩️" if info=="f" else "👀 asCopy", callback_data="air"
                                        )]]
                                 ))
         time_taken=datetime.timedelta(seconds=int(time.time()-start_time))
@@ -281,7 +281,7 @@ async def _message(bot, message):
         await asyncio.sleep(1)
         if not message.reply_to_message:
             return await procs.edit(
-                                   "__Please Reply To A Message..__ 🤧"
+                                   "__Please Reply To A Message..__"
                                    )
         if len(message.command) == 1:
             return await procs.edit(
@@ -362,7 +362,7 @@ async def server(bot, message):
                                  f"**◍ Message Id     :** `{message.message_id}`",
                             reply_markup = InlineKeyboardMarkup(
                                  [[
-                                     InlineKeyboardButton("⟨ CLOSE ⟩",
+                                     InlineKeyboardButton("⟨ 🚫 TUTUP 🚫P ⟩",
                                             callback_data = "closeALL")
                                  ]]
                                  ),

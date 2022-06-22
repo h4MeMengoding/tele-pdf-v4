@@ -120,7 +120,7 @@ class Bot(HamePDF):
                                       text = "✅ - Bot berhasil direstart",
                                       reply_markup = InlineKeyboardMarkup(
                                             [[
-                                                InlineKeyboardButton("TUTUP",
+                                                InlineKeyboardButton("🚫 TUTUP 🚫P",
                                                                callback_data="close")
                                             ]]
                                       ))

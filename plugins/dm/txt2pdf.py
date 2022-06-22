@@ -122,7 +122,7 @@ async def _pgSize(bot, callbackQuery):
         
         if chat_id in PROCESS:
             return await callbackQuery.answer(
-                                             "Work in progress.. 🙇"
+                                             "Sedang diproses..."
                                              )
         bla, _, __ = callbackQuery.data.split("|")
         PROCESS.append(chat_id); TXT[chat_id] = []; nabilanavab=True
@@ -130,7 +130,7 @@ async def _pgSize(bot, callbackQuery):
             # 1st value will be pdf title
             askPDF = await bot.ask(
                                   text = "__TEXT TO PDF » Now, please enter a TITLE:__\n\n"
-                                         "/exit __to cancel__\n"
+                                         "/exit __untuk membatalkan__\n"
                                          "/skip __to skip__",
                                   chat_id = chat_id,
                                   reply_to_message_id = message_id,
@@ -156,7 +156,7 @@ async def _pgSize(bot, callbackQuery):
             # other value will be pdf para
             askPDF = await bot.ask(
                                   text = f"__TEXT TO PDF » Now, please enter paragraph {len(TXT[chat_id])-1}:__"
-                                         "\n\n/exit __to cancel__\n"
+                                         "\n\n/exit __untuk membatalkan__\n"
                                          "/create __to create__",
                                   chat_id = chat_id,
                                   reply_to_message_id = message_id,

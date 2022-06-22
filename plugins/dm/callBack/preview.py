@@ -105,7 +105,7 @@ async def _preview(bot, callbackQuery):
                           pglist[-3:number_of_pages+1]
             caption = f"PDF pages: {totalPgList}\n\n"
         await downloadMessage.edit(
-                                  f"`Total pages: {len(totalPgList)}..` 🤌"
+                                  f"`Total Halaman: {len(totalPgList)}..` 🤌"
                                   )
         
         metaData = doc.metadata

@@ -85,7 +85,7 @@ async def _pdf(bot, callbackQuery):
         
         if callbackQuery.data == "rot360":
             return await callbackQuery.answer(
-                                      "You have Some big Problem..🙂"
+                                      "Hmm, ada masalah"
                                       )
         
         # Never Work OCR if nabilanavab==True
@@ -93,13 +93,13 @@ async def _pdf(bot, callbackQuery):
         if callbackQuery.data.startswith(tuple(["ocr", "Kocr"])):
             if nabilanavab:
                 return await callbackQuery.answer(
-                                                "Owner Restricted 😎🤏"
+                                                "Dibatasi oleh dev"
                                                  )
             if callbackQuery.data[0] == "K":
                 _, number_of_pages = callbackQuery.data.split("|")
                 if int(number_of_pages) >= 5:
                     return await callbackQuery.answer(
-                                                     "send a pdf file less than 5 pages.. 🙄"
+                                                     "kirim pdf file kurang dari 5 halaman"
                                                      )
         
         # PDF A4 Formatter
@@ -107,26 +107,26 @@ async def _pdf(bot, callbackQuery):
             _, number_of_pages = callbackQuery.data.split("|")
             if int(number_of_pages) >= 5:
                 return await callbackQuery.answer(
-                                          "send a pdf file less than 5 pages.. 🙄"
+                                          "kirim pdf file kurang dari 5 halaman"
                                           )
         
         # Known MetaData
         if callbackQuery.data.startswith("KpdfInfo"):
             _, number_of_pages = callbackQuery.data.split("|")
             return await callbackQuery.answer(
-                                      "♎ TOTAL {} PAGES ♎".format(number_of_pages)
+                                      " TOTAL {} HALAMAN ".format(number_of_pages)
                                       )
         
         # CHECKS IF BOT DOING ANY WORK
         if chat_id in PROCESS:
             return await callbackQuery.answer(
-                                             "Work in progress.. 🙇"
+                                             "Sedang diproses..."
                                              )
         
         # ↓ ADD TO PROCESS       ↓ CALLBACK DATA
         PROCESS.append(chat_id); data = callbackQuery.data
         await callbackQuery.answer(
-                                  "⚙️ Processing..."
+                                  "Memproses..."
                                   )
         
         if (data[0] == "K") and ("|" in data):
@@ -140,15 +140,15 @@ async def _pdf(bot, callbackQuery):
                                     chat_id = chat_id,
                                     reply_to_message_id = message_id,
                                     text = f"__PDF {work} »\n"
-                                            "Now, please enter the password :__\n\n"
-                                            "/exit __to cancel__",
+                                            "Masukkan password :__\n\n"
+                                            "/exit __untuk membatalkan__",
                                     filters = filters.text,
                                     reply_markup = ForceReply(True)
                                     )
             # CANCEL DECRYPTION PROCESS IF MESSAGE == /exit
             if password.text == "/exit":
                 await password.reply(
-                                    "`process canceled.. `😏",
+                                    "`proses dibatalkan...`",
                                     quote = True
                                     )
                 PROCESS.remove(chat_id)
@@ -163,15 +163,15 @@ async def _pdf(bot, callbackQuery):
                                    chat_id = chat_id,
                                    reply_to_message_id = message_id,
                                    text = "__Rename PDF »\n"
-                                          "Now, please enter the new name:__\n\n"
-                                          "/exit __to cancel__",
+                                          "Masukkan nama pdf baru :__\n\n"
+                                          "/exit __untuk membatalkan__",
                                    filters = filters.text,
                                    reply_markup = ForceReply(True)
                                    )
             # CANCEL RENAME PROCESS IF MESSAGE == /exit
             if newName.text == "/exit":
                 await newName.reply(
-                                   "`process canceled.. `😏",
+                                   "`proses dibatalkan...`",
                                    quote = True
                                    )
                 PROCESS.remove(chat_id)
@@ -184,7 +184,7 @@ async def _pdf(bot, callbackQuery):
         
         # DOWNLOAD MESSSAGE
         downloadMessage = await callbackQuery.message.reply_text(
-                                                                "`Downloding your pdf..` 📩", 
+                                                                "`Mendownload pdf`", 
                                                                 reply_markup = cancelBtn,
                                                                 quote = True
                                                                 )
@@ -195,7 +195,7 @@ async def _pdf(bot, callbackQuery):
         # Bot not using os.rename, just send input file with new name ;)
         if data.startswith(tuple(["rename", "Krename"])):
             output_file = input_file
-            caption = f"__New Name:__ `{fileNm}`"
+            caption = f"__Nama Baru:__ `{fileNm}`"
         # Output file name of pdf to .txt, html, json file
         elif data in ["T", "KT"]:
             output_file = f"{message_id}/outPut.txt"
@@ -238,7 +238,7 @@ async def _pdf(bot, callbackQuery):
             return
         
         await downloadMessage.edit(
-                                  "⚙️ `Started Processing.. \nIt might take some time..`💛",
+                                  " `Sedang memproses... \nmungkin membutuhkan waktu beberapa saat.`",
                                   reply_markup = cancelBtn
                                   )
         # CHECK PDF OR NOT(HERE compressed, SO PG UNKNOWN)
@@ -248,7 +248,7 @@ async def _pdf(bot, callbackQuery):
             if data.startswith("decrypt"):
                 if not(checked == "encrypted"):
                     await downloadMessage.edit(
-                                              "`File Not Encrypted..`🙏🏻"
+                                              "`File tidak disandi...`"
                                               )
                     PROCESS.remove(chat_id); shutil.rmtree(f"{message_id}")
                     return
@@ -260,7 +260,7 @@ async def _pdf(bot, callbackQuery):
         if chat_id in PROCESS:
             if data.startswith(tuple(["compress", "Kcompress"])):
                 await downloadMessage.edit(
-                                          "⚙️ `Started Compressing.. 🌡️\nIt might take some time..`💛", 
+                                          "`Memulai Compressing..\nmungkin membutuhkan waktu beberapa saat.`", 
                                           reply_markup = cancelBtn
                                           )
                 caption = await compressPDF(
@@ -272,7 +272,7 @@ async def _pdf(bot, callbackQuery):
                     return
             if data.startswith(tuple(["decrypt", "Kdecrypt"])):
                 await downloadMessage.edit(
-                                          "⚙️ `Started Decrypting.. 🔓\nIt might take some time..`💛",
+                                          "`Memulai Decrypting..\nmungkin membutuhkan waktu beberapa saat.`",
                                           reply_markup = cancelBtn
                                           )
                 caption = await decryptPDF(
@@ -285,7 +285,7 @@ async def _pdf(bot, callbackQuery):
                     return
             if data.startswith(tuple(["encrypt", "Kencrypt"])):
                 await downloadMessage.edit(
-                                          "⚙️ `Started Encrypting.. 🔐\nIt might take some time..`💛",
+                                          "`Memulai Encrypting..\nmungkin membutuhkan waktu beberapa saat.`",
                                           reply_markup = cancelBtn
                                           )
                 caption = await encryptPDF(
@@ -298,14 +298,14 @@ async def _pdf(bot, callbackQuery):
             if data.startswith(tuple(["ocr", "Kocr"])):
                 if number_of_pages>5:
                     await downloadMessage.edit(
-                                              "__Send me a file less than 5 images__ 😅"
+                                              "__Kirim file kurang dari 5 gambar__"
                                               )
                     PROCESS.remove(chat_id)
                     shutil.rmtree(f"{message_id}")
                     return
                 else:
                     await downloadMessage.edit(
-                                              "⚙️ `Adding OCR Layer.. ✍️\nIt might take some time..`💛",
+                                              "⚙️ `Menambahkan OCR Layer.. \nmungkin membutuhkan waktu beberapa saat.`",
                                               reply_markup = cancelBtn
                                               )
                     caption = await ocrPDF(
@@ -318,14 +318,14 @@ async def _pdf(bot, callbackQuery):
             if data.startswith(tuple(["format", "Kformat"])):
                 if number_of_pages>5:
                     await downloadMessage.edit(
-                                              "__Send me a file less than 5 images__ 😅"
+                                              "__Kirim file kurang dari 5 gambar__"
                                               )
                     PROCESS.remove(chat_id)
                     shutil.rmtree(f"{message_id}")
                     return
                 else:
                     await downloadMessage.edit(
-                                              "⚙️ `Started Formatting.. 🤘\nIt might take some time..`💛",
+                                              "`Memulai Formatting..\nmungkin membutuhkan waktu beberapa saat.`",
                                               reply_markup = cancelBtn
                                               )
                     caption = await formatterPDF(
@@ -337,13 +337,13 @@ async def _pdf(bot, callbackQuery):
                         return
             if data.startswith(tuple(["rename", "Krename"])):
                 await downloadMessage.edit(
-                                          "⚙️ `Renameing PDf.. ✏️\nIt might take some time..`💛",
+                                          "`Mengubah nama PDf..\nmungkin membutuhkan waktu beberapa saat.`",
                                           reply_markup = cancelBtn
                                           )
                 await asyncio.sleep(1)
             if data.startswith(tuple(["rot90", "rot180", "rot270"])):
                 await downloadMessage.edit(
-                                          "⚙️ `Rotating PDf.. 🤸\nIt might take some time..`💛",
+                                          "`Rotating PDf..\nmungkin membutuhkan waktu beberapa saat.`",
                                           reply_markup = cancelBtn
                                           )
                 caption = await rotatePDF(
@@ -355,7 +355,7 @@ async def _pdf(bot, callbackQuery):
                     return
             if data in ["T", "H", "J", "M", "KT", "KH", "KJ", "KM"]:
                 await downloadMessage.edit(
-                                          "⚙️ `Extracting Text.. 🐾\nIt might take some time..`💛",
+                                          "`Extracting Text..\nmungkin membutuhkan waktu beberapa saat.`",
                                           reply_markup=cancelBtn 
                                           )
                 caption = await textPDF(
@@ -380,7 +380,7 @@ async def _pdf(bot, callbackQuery):
             thumbnail = await formatThumb(location)
         
         await downloadMessage.edit(
-                                  "⚙️ `Started Uploading..` 📤",
+                                  "`Memulai Uploading..`",
                                   reply_markup = cancelBtn
                                   )
         await callbackQuery.message.reply_chat_action(

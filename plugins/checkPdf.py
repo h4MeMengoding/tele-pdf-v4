@@ -18,7 +18,7 @@ encryptedMsg = """`FILE IS ENCRYPTED` 🔐
 File Name: `{}`
 File Size: `{}`
 
-`Number of Pages: {}`✌️"""
+`Nomer halaman: {}`"""
 
 codecMsg = """__I don't do anything with this file__ 😏
 
@@ -45,7 +45,7 @@ async def checkPdf(file_path, callbackQuery):
                     ),
                     reply_markup = InlineKeyboardMarkup(
                         [[
-                            InlineKeyboardButton("🔓 DECRYPT 🔓",callback_data=f"Kdecrypt|{number_of_pages}")
+                            InlineKeyboardButton("DECRYPT",callback_data=f"Kdecrypt|{number_of_pages}")
                         ]]
                     )
                 )

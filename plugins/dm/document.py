@@ -77,7 +77,7 @@ suprtedPdfFile2 = [
 #--------> LOCAL VARIABLES
 #------------------->
 
-pdfReplyMsg = """`What shall i do with this file.?`
+pdfReplyMsg = """`Informasi File`
 
 File Name : `{}`
 File Size : `{}`"""
@@ -90,7 +90,7 @@ imageAdded = """`Added {} page/'s to your pdf..`🤓
 
 fileName: `{}.pdf`"""
 
-errorEditMsg = """Something went wrong..😐
+errorEditMsg = """Something went wrong..
 
 ERROR: `{}`
 
@@ -106,28 +106,28 @@ hit on "retry ♻️" after joining.. 😅"""
 
 pdfReply = InlineKeyboardMarkup(
         [[
-            InlineKeyboardButton("⭐ META£ATA ⭐", callback_data="pdfInfo"),
+            InlineKeyboardButton("METADATA", callback_data="pdfInfo"),
             InlineKeyboardButton("🗳️ PREVIEW 🗳️", callback_data="preview")
         ],[
-            InlineKeyboardButton("🖼️ IMAGES 🖼️", callback_data="toImage"),
-            InlineKeyboardButton("✏️ TEXT ✏️", callback_data="toText")
+            InlineKeyboardButton("IMAGES 🖼️", callback_data="toImage"),
+            InlineKeyboardButton("TEXT", callback_data="toText")
         ],[
-            InlineKeyboardButton("🔐 ENCRYPT 🔐", callback_data="encrypt"),
+            InlineKeyboardButton("ENCRYPT", callback_data="encrypt"),
             InlineKeyboardButton("🔒 DECRYPT 🔓",callback_data="decrypt")
         ],[
-            InlineKeyboardButton("🗜️ COMPRESS 🗜️", callback_data="compress"),
-            InlineKeyboardButton("🤸 ROTATE 🤸", callback_data="rotate")
+            InlineKeyboardButton("COMPRESS", callback_data="compress"),
+            InlineKeyboardButton("ROTATE", callback_data="rotate")
         ],[
-            InlineKeyboardButton("✂️ SPLIT ✂️", callback_data="split"),
+            InlineKeyboardButton("SPLIT", callback_data="split"),
             InlineKeyboardButton("🧬 MERGE 🧬", callback_data="merge")
         ],[
-            InlineKeyboardButton("™️ STAMP ™️", callback_data="stamp"),
+            InlineKeyboardButton("STAMP", callback_data="stamp"),
             InlineKeyboardButton("✏️ RENAME ✏️", callback_data="rename")
         ],[
-            InlineKeyboardButton("📝 OCR 📝", callback_data="ocr"),
+            InlineKeyboardButton("OCR", callback_data="ocr"),
             InlineKeyboardButton("🥷 A4 FORMAT 🥷", callback_data="format")
         ],[
-            InlineKeyboardButton("🚫 CLOSE 🚫", callback_data="closeALL")
+            InlineKeyboardButton("🚫 TUTUP 🚫P", callback_data="closeALL")
         ]]
     )
 
@@ -182,7 +182,7 @@ async def documents(bot, message):
                                                                 ),
                                     reply_markup = InlineKeyboardMarkup(
                                          [[
-                                               InlineKeyboardButton("🌟 JOIN CHANNEL 🌟",
+                                               InlineKeyboardButton("🌟 JOIN CHANNEL",
                                                              url=invite_link.invite_link)
                                          ],[
                                                InlineKeyboardButton("Refresh ♻️",

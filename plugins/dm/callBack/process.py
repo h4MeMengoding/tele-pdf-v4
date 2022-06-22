@@ -45,7 +45,7 @@ cantCompressMore = "File Can't be Compressed More..🤐"
 
 pgNoError = """__For Some Reason A4 FORMATTING Supports for pdfs with less than 5 Pages__"
 
-Total Pages: {} ⭐"""
+Total Pages: {}"""
 
 
 # ❌ DECRYPT PDF FILE ❌
